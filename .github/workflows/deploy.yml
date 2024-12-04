@@ -30,3 +30,6 @@ jobs:
 
       - name: S3에 빌드된 파일 업로드 하기
         run: aws s3 cp ./dist s3://js-instagram-web/ --recursive
+
+      - name: CloudFront 캐시 무효화
+        run: aws cloudfront create-invalidation --distribution-id E301TKZSXJ5QXW --paths "/*"
